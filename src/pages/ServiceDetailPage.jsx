@@ -162,7 +162,7 @@ const ServiceDetailPage = () => {
           <p className="text-xl mb-8">Hubungi kami sekarang untuk konsultasi gratis dan penawaran terbaik</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6289630541569"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-white text-gray-900 font-bold rounded-full hover:shadow-2xl transform hover:scale-105 transition-all duration-300"

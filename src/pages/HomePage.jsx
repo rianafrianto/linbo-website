@@ -269,9 +269,9 @@ const HomePage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             {[
-              { icon: <Phone size={28} />, title: 'Telepon', info: ['+62 812-3456-7890', '+62 821-9876-5432'] },
+              { icon: <Phone size={28} />, title: 'Telepon', info: ['+62 896-3054-1569'] },
               { icon: <Mail size={28} />, title: 'Email', info: ['info@linbo.co.id', 'cs@linbo.co.id'] },
-              { icon: <MapPin size={28} />, title: 'Alamat', info: ['Jl. Logistik Raya No. 123', 'Jakarta Utara, Indonesia'] }
+              { icon: <MapPin size={28} />, title: 'Alamat', info: ['Jl. Haji Liyas 34, Sudimara Barat', 'RT 001 / RW 003', 'Kel. Paninggilan Utara, Kec. Ciledug', 'Kota Tangerang, Provinsi Banten'] }
             ].map((contact, index) => (
               <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-cyan-500 rounded-full mb-4 transform hover:rotate-12 transition-transform duration-300">
@@ -292,7 +292,7 @@ const HomePage = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6289630541569"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transform hover:scale-105 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-2xl"
