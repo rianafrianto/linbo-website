@@ -38,7 +38,7 @@ const HomePage = () => {
             LINBO
           </h1>
           <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-6">
-            LANCAR INDAH BRO
+            PT. LANCAR INDAH BRO
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 font-light">
             ELEGANCE IN SWIFT MOTION
