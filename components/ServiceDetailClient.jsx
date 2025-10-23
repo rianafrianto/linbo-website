@@ -1,13 +1,11 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { ChevronRight, Check, Phone } from 'lucide-react';
-import { services, serviceDetails } from '../data/servicesData';
+'use client';
 
-const ServiceDetailPage = () => {
-  const { serviceId } = useParams();
-  const navigate = useNavigate();
-  const detail = serviceDetails[serviceId];
-  const serviceColor = services.find(s => s.id === serviceId)?.color || 'from-cyan-500 to-blue-600';
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import { ChevronRight, Check, Phone } from 'lucide-react';
+
+export default function ServiceDetailClient({ serviceId, detail, serviceColor, services }) {
+  const router = useRouter();
 
   if (!detail) {
     return (
@@ -15,7 +13,7 @@ const ServiceDetailPage = () => {
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Service Not Found</h1>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => router.push('/')}
             className="px-6 py-3 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700"
           >
             Back to Home
@@ -26,7 +24,7 @@ const ServiceDetailPage = () => {
   }
 
   const scrollToContact = () => {
-    navigate('/');
+    router.push('/');
     setTimeout(() => {
       const element = document.getElementById('contact');
       if (element) {
@@ -180,6 +178,4 @@ const ServiceDetailPage = () => {
       </section>
     </div>
   );
-};
-
-export default ServiceDetailPage;
+}

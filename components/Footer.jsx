@@ -1,16 +1,18 @@
+'use client';
+
 import React from 'react';
 import { Clock } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { usePathname, useRouter } from 'next/navigation';
 import { services } from '../data/servicesData';
-import logo from '../assets/logo.png';
+import Image from 'next/image';
 
 const Footer = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const scrollToSection = (sectionId) => {
-    if (location.pathname !== '/') {
-      navigate('/');
+    if (pathname !== '/') {
+      router.push('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -26,7 +28,7 @@ const Footer = () => {
   };
 
   const navigateToService = (serviceId) => {
-    navigate(`/layanan/${serviceId}`);
+    router.push(`/layanan/${serviceId}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -36,7 +38,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-3">
-              <img src={logo} alt="Linbo Logo" className="w-10 h-10" />
+              <Image src="/logo.png" alt="Linbo Logo" width={40} height={40} />
               <div>
                 <h3 className="text-xl font-bold text-white">LINBO</h3>
                 <p className="text-xs text-gray-400">Swift Motion</p>

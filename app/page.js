@@ -1,11 +1,13 @@
+'use client';
+
 import React from 'react';
 import { ChevronRight, Phone, Mail, MapPin, Globe, Users, Award, TrendingUp, Clock, Zap, Shield } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { services } from '../data/servicesData';
-import logo from '../assets/logo.png';
+import Image from 'next/image';
 
-const HomePage = () => {
-  const navigate = useNavigate();
+export default function HomePage() {
+  const router = useRouter();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -15,7 +17,7 @@ const HomePage = () => {
   };
 
   const navigateToService = (serviceId) => {
-    navigate(`/layanan/${serviceId}`);
+    router.push(`/layanan/${serviceId}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -30,7 +32,7 @@ const HomePage = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
           <div className="mb-4">
             <div className="inline-block">
-              <img src={logo} alt="Linbo Logo" className="w-48 h-48 mx-auto drop-shadow-2xl" />
+              <Image src="/logo.png" alt="Linbo Logo" width={192} height={192} className="mx-auto drop-shadow-2xl" priority />
             </div>
           </div>
 
@@ -295,6 +297,4 @@ const HomePage = () => {
       </section>
     </>
   );
-};
-
-export default HomePage;
+}

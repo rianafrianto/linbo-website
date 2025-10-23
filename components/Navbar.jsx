@@ -1,14 +1,17 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logo from '../assets/logo.png';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isServicePage = location.pathname.startsWith('/layanan/');
+  const pathname = usePathname();
+  const router = useRouter();
+  const isServicePage = pathname.startsWith('/layanan/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,8 +23,8 @@ const Navbar = () => {
 
   const scrollToSection = (sectionId) => {
     setIsMenuOpen(false);
-    if (location.pathname !== '/') {
-      navigate('/');
+    if (pathname !== '/') {
+      router.push('/');
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -47,8 +50,8 @@ const Navbar = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || isServicePage ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex justify-between items-center h-20 ${scrolled || isServicePage ? '' : 'border-b border-white/30'}`}>
-          <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} alt="Linbo Logo" className="w-16 h-16" />
+          <Link href="/" className="flex items-center space-x-3">
+            <Image src="/logo.png" alt="Linbo Logo" width={64} height={64} />
             <div>
               <h1 className={`text-2xl font-bold ${scrolled || isServicePage ? 'text-gray-900' : 'text-white'}`}>LINBO</h1>
               <p className={`text-xs ${scrolled || isServicePage ? 'text-gray-600' : 'text-gray-200'}`}>Elegance in Swift Motion</p>
