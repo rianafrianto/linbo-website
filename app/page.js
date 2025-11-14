@@ -5,6 +5,7 @@ import { ChevronRight, Phone, Mail, MapPin, Globe, Users, Award, TrendingUp, Clo
 import { useRouter } from 'next/navigation';
 import { services } from '../data/servicesData';
 import Image from 'next/image';
+import GoogleMaps from '../components/GoogleMaps';
 
 export default function HomePage() {
   const router = useRouter();
@@ -269,28 +270,64 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-2xl transform hover:scale-105 transition-all duration-500">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Dapatkan Konsultasi Gratis</h3>
-              <p className="text-gray-600">Hubungi kami melalui WhatsApp untuk konsultasi langsung dengan tim kami</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-white rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-shadow duration-300 flex flex-col justify-between">
+              <div className="text-center">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">Dapatkan Konsultasi Gratis</h3>
+              </div>
+
+              <div className="flex flex-col items-center justify-center py-6">
+                <div className="flex items-center gap-6 mb-6">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-2 mx-auto">
+                      <Clock className="text-white" size={28} />
+                    </div>
+                    <p className="text-sm font-semibold text-gray-700">Respon Cepat</p>
+                    <p className="text-xs text-gray-500">24/7</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-2 mx-auto">
+                      <Shield className="text-white" size={28} />
+                    </div>
+                    <p className="text-sm font-semibold text-gray-700">Terpercaya</p>
+                    <p className="text-xs text-gray-500">500+ Klien</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-2 mx-auto">
+                      <Award className="text-white" size={28} />
+                    </div>
+                    <p className="text-sm font-semibold text-gray-700">Berpengalaman</p>
+                    <p className="text-xs text-gray-500">10+ Tahun</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-gray-600 leading-relaxed text-center mb-6">Hubungi kami melalui WhatsApp untuk konsultasi langsung dengan tim kami</p>
+                <div className="flex flex-col gap-4">
+                  <a
+                    href="https://wa.me/6289630541569"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full px-8 py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transform hover:scale-105 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-2xl"
+                  >
+                    <Phone className="mr-2" size={20} />
+                    Chat via WhatsApp
+                  </a>
+                  <a
+                    href="mailto:info@linbo.co.id"
+                    className="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-xl hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
+                  >
+                    <Mail className="mr-2" size={20} />
+                    Kirim Email
+                  </a>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://wa.me/6289630541569"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transform hover:scale-105 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-2xl"
-              >
-                <Phone className="mr-2" size={20} />
-                Chat via WhatsApp
-              </a>
-              <a
-                href="mailto:info@linbo.co.id"
-                className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center"
-              >
-                <Mail className="mr-2" size={20} />
-                Kirim Email
-              </a>
+
+            <div className="bg-white rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-shadow duration-300">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">Lokasi Kami</h3>
+              <GoogleMaps />
             </div>
           </div>
         </div>
