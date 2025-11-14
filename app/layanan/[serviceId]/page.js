@@ -7,8 +7,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ServiceDetailPage({ params }) {
-  const serviceId = params.serviceId;
+export default async function ServiceDetailPage({ params }) {
+  const { serviceId } = await params;
   const detail = serviceDetails[serviceId];
   const serviceColor = services.find(s => s.id === serviceId)?.color || 'from-cyan-500 to-blue-600';
 
