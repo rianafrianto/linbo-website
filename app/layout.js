@@ -20,7 +20,7 @@ export const metadata = {
     telephone: false,
   },
   verification: {
-    google: 'StUqo2W7ZYPzvLti7sDhcWbbQf3r94HpWW70SSIE7Mg',
+    google: 'f5q9iR7Lm2LOZaRyPtxRIw-6nTAfsyt0KRzhK_z_3bU',
   },
   icons: {
     icon: [
